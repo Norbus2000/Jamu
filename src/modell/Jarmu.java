@@ -13,16 +13,36 @@ public abstract class Jarmu {
     }
 
     public void beindit() {
+        if(this.uzemanyag==true){
+        this.beinditva = true;
+        }else{
+             this.beinditva = false;
+        }
     }
 
     public void leallit() {
+        if(this.beinditva==true){
+            this.beinditva = false;
+        }
+        if(this.megerkezett==true){
+            this.beinditva=false;
+        }
     }
 
     public boolean tankol() {
-        return false;
+        this.uzemanyag=true;
+        return true;
     }
 
     public boolean halad() {
+        if(this.beinditva && this.uzemanyag==true){
+        return true;
+        }else if (this.megerkezett==true){
+            this.uzemanyag = false;
+            return false;
+        }
         return false;
+        
     }
+    
 }

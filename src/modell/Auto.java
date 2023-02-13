@@ -9,8 +9,19 @@ public class Auto extends Jarmu{
         this.defekt = defekt;
     }
     
-    public void kerekCsere(){}
+    public void kerekCsere(){
+        if (this.defekt==true){
+            
+        }
+    }
+    @Override
     public boolean halad(){
+               if(super.isBeinditva() && super.isUzemanyag()){
+        return true;
+        }else if (super.isMegerkezett()==true){
+            super.setUzemanyag(true);
+            return false;
+        }
         return false;
     }
    
